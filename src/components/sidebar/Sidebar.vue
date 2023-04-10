@@ -10,6 +10,8 @@
   import NavigationRoutes from './NavigationRoutes'
   import MenuAccordion from './menu/MenuAccordion.vue'
   import MenuMinimized from './menu/MenuMinimized.vue'
+  import { useGlobalStore } from '../../stores/global-store'
+  import { computed } from '@vue/reactivity'
 
   withDefaults(
     defineProps<{
@@ -27,8 +29,10 @@
       minimizedWidth: undefined,
     },
   )
-
-  const items = ref(NavigationRoutes.routes)
+  const store = useGlobalStore()
+  const items = computed(() => {
+    return store.isAdmin ? NavigationRoutes.adminRoutes : NavigationRoutes.customerRoutes
+  })
 </script>
 
 <style lang="scss">

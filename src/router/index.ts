@@ -6,6 +6,7 @@ import Page404Layout from '../layouts/Page404Layout.vue'
 
 import RouteViewComponent from '../layouts/RouterBypass.vue'
 import UIRoute from '../pages/admin/ui/route'
+import { useGlobalStore } from '../stores/global-store'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -166,16 +167,10 @@ const routes: Array<RouteRecordRaw> = [
         name: 'login',
         path: 'login',
         component: () => import('../pages/auth/login/Login.vue'),
-      },
-      {
-        name: 'signup',
-        path: 'signup',
-        component: () => import('../pages/auth/signup/Signup.vue'),
-      },
-      {
-        name: 'recover-password',
-        path: 'recover-password',
-        component: () => import('../pages/auth/recover-password/RecoverPassword.vue'),
+        beforeEnter: () => {
+          const store = useGlobalStore()
+          store.$reset()
+        },
       },
       {
         path: '',
@@ -217,4 +212,20 @@ const router = createRouter({
   routes,
 })
 
+router.beforeEach((to, from, next) => {
+  const store = useGlobalStore()
+  const email = localStorage.getItem('email')
+  const uid = localStorage.getItem('UID')
+  if (!uid) {
+    next({ name: 'login' })
+  } else if (uid && email) {
+    store.changeUserName(email)
+    if (email === 'quanghm27@gmail.com') {
+      store.setAdminRole()
+    }
+    next()
+  } else {
+    next()
+  }
+})
 export default router

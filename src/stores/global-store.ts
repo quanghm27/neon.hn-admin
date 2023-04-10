@@ -5,6 +5,7 @@ export const useGlobalStore = defineStore('global', {
     return {
       isSidebarMinimized: false,
       userName: 'Vasili S',
+      isAdmin: false,
     }
   },
 
@@ -15,6 +16,9 @@ export const useGlobalStore = defineStore('global', {
 
     changeUserName(userName: string) {
       this.userName = userName
+    },
+    setAdminRole() {
+      this.isAdmin = true
     },
   },
 })

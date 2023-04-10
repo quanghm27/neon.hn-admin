@@ -291,6 +291,9 @@
     "persian": "Persian"
   },
   "menu": {
+    "orders": "Orders",
+    "users": "Users",
+    "myDesigns": "My Designs",
     "auth": "Auth",
     "rating": "Rating",
     "buttons": "Buttons",
