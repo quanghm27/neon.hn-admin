@@ -216,7 +216,7 @@ router.beforeEach((to, from, next) => {
   const store = useGlobalStore()
   const email = localStorage.getItem('email')
   const uid = localStorage.getItem('UID')
-  if (!uid) {
+  if (!uid && to.name !== "login") {
     next({ name: 'login' })
   } else if (uid && email) {
     store.changeUserName(email)
