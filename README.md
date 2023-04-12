@@ -197,7 +197,7 @@ Become a partner: [hello@epicmax.co](mailto:hello@epicmax.co)
 
 [Epicmax](https://epicmax.co) is committed to Open Source from its beginning.
 [Vuestic UI](https://vuestic.dev) was created and backed by Epicmax, and is supported through all the years.
-You can request a consultation or order web development services by Epicmax via this [form](https://epicmax.co/contacts) 😎
+You can request a consultation or ordersFromApi web development services by Epicmax via this [form](https://epicmax.co/contacts) 😎
 
 Say hi: <a href="mailto:hello@epicmax.co">hello@epicmax.co</a>. We will be happy to work with you!
 

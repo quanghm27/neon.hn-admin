@@ -2,7 +2,7 @@
 import { initializeApp } from 'firebase/app'
 import { getStorage } from 'firebase/storage'
 import { serverTimestamp } from 'firebase/firestore'
-import { getDatabase, onValue, ref } from 'firebase/database'
+import { getDatabase, onValue, ref, child, get } from 'firebase/database'
 import {
   signInWithEmailAndPassword,
   FacebookAuthProvider,
@@ -58,5 +58,33 @@ export async function signIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password)
   } catch (e) {
     throw e
+  }
+}
+
+const dbRef = ref(getDatabase())
+
+export async function getFirebaseOrders() {
+  try {
+    const snapshot = await get(child(dbRef, `orders`))
+    if (snapshot.exists()) {
+      return snapshot.val()
+    } else {
+      console.log('No order available')
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export async function getFirebaseUsers() {
+  try {
+    const snapshot = await get(child(dbRef, `users`))
+    if (snapshot.exists()) {
+      return snapshot.val()
+    } else {
+      console.log('No order available')
+    }
+  } catch (error) {
+    console.error(error)
   }
 }

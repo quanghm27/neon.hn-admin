@@ -7,6 +7,7 @@ import Page404Layout from '../layouts/Page404Layout.vue'
 import RouteViewComponent from '../layouts/RouterBypass.vue'
 import UIRoute from '../pages/admin/ui/route'
 import { useGlobalStore } from '../stores/global-store'
+import { RouteName } from '../types'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -18,6 +19,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/admin',
     component: AppLayout,
     children: [
+      {
+        name: RouteName.orders,
+        path: 'orders',
+        component: () => import('../pages/admin/orders/Orders.vue'),
+      },
+      {
+        name: RouteName.users,
+        path: 'users',
+        component: () => import('../pages/admin/users/Users.vue'),
+      },
       {
         name: 'dashboard',
         path: 'dashboard',
@@ -216,7 +227,7 @@ router.beforeEach((to, from, next) => {
   const store = useGlobalStore()
   const email = localStorage.getItem('email')
   const uid = localStorage.getItem('UID')
-  if (!uid && to.name !== "login") {
+  if (!uid && to.name !== 'login') {
     next({ name: 'login' })
   } else if (uid && email) {
     store.changeUserName(email)

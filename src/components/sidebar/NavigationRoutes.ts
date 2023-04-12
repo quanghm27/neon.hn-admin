@@ -1,3 +1,5 @@
+import { RouteName } from '../../types'
+
 export interface INavigationRoute {
   name: string
   displayName: string
@@ -12,14 +14,14 @@ export default {
   },
   adminRoutes: [
     {
-      name: 'dashboard',
+      name: RouteName.orders,
       displayName: 'menu.orders',
       meta: {
         icon: 'vuestic-iconset-dashboard',
       },
     },
     {
-      name: 'statistics',
+      name: RouteName.users,
       displayName: 'menu.users',
       meta: {
         icon: 'vuestic-iconset-user',
