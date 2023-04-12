@@ -499,7 +499,8 @@
       "location": "Location",
       "orderDate": "Order Date",
       "orderOptions": "Options",
-      "orderDesign": "Design File"
+      "orderDesign": "Design File",
+      "userCreatedDate": "Created Date"
     }
   },
   "user": {

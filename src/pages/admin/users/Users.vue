@@ -8,14 +8,14 @@
               <tr>
                 <th>{{ t('tables.headings.email') }}</th>
                 <th>{{ t('tables.headings.name') }}</th>
-                <th>{{ t('tables.headings.date') }}</th>
+                <th>{{ t('tables.headings.userCreatedDate') }}</th>
               </tr>
             </thead>
 
             <tbody>
               <tr v-for="user in computedUsers" :key="user.userId">
                 <td>{{ user.email }}</td>
-                <td>{{ user.userId }}</td>
+                <td>{{ user.displayName }}</td>
                 <td>{{ user.date }}</td>
               </tr>
             </tbody>
@@ -31,8 +31,6 @@
   import { getFirebaseUsers } from '../../../firebase'
   import { useI18n } from 'vue-i18n'
   import dayjs from 'dayjs'
-  import relativeTime from 'dayjs/plugin/relativeTime'
-  dayjs.extend(relativeTime)
 
   const users = ref([])
   const computedUsers = computed(() => {
@@ -40,7 +38,8 @@
       return {
         userId: userId,
         email: user.email,
-        date: dayjs(user.date).fromNow(),
+        displayName: user.displayName,
+        date: dayjs(user.date).format('DD/MM/YYYY'),
       }
     })
   })
