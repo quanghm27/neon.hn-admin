@@ -26,6 +26,7 @@
     "chart.js": "^3.8.0",
     "dayjs": "^1.11.7",
     "epic-spinners": "^2.0.0",
+    "file-saver": "^2.0.5",
     "firebase": "^9.19.1",
     "firebase-admin": "^11.6.0",
     "flag-icons": "^6.6.4",

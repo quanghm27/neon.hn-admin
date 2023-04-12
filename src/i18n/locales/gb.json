@@ -489,13 +489,17 @@
     "noReport": "There is no data to display. Report will be available on November 3, 2018.",
     "loading": "Loading",
     "headings": {
+      "No.": "No.",
       "email": "Email",
       "name": "Name",
       "firstName": "First Name",
       "lastName": "Last Name",
       "status": "Status",
       "country": "Country",
-      "location": "Location"
+      "location": "Location",
+      "orderDate": "Order Date",
+      "orderOptions": "Options",
+      "orderDesign": "Design File"
     }
   },
   "user": {

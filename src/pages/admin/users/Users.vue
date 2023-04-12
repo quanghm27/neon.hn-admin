@@ -1,7 +1,6 @@
 <template>
   <div class="users-table flex">
     <va-card class="flex mb-4">
-      <va-card-title>{{ t('tables.basic') }}</va-card-title>
       <va-card-content>
         <div class="table-wrapper">
           <table class="va-table va-table--striped va-table--hoverable">
